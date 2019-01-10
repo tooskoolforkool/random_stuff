@@ -13,7 +13,7 @@ sudo apt-get install ros-kinetic-desktop-full -y
 sudo rosdep init
 rosdep update
 rossource="source /opt/ros/kinetic/setup.bash"
-if grep -Fxq "$rossource" ~/.bashrc; then echo ROS setup.bash is already in .bashrc; else echo "$rossource" >> ~/.bashrc; fi 
+if grep -Fxq "$rossource" ~/.bashrc; then echo ROS setup.bash is already in .bashrc; else echo "$rossource" >> ~/.bashrc; fi
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools -y
 
 # PX4 Firmware
@@ -46,12 +46,3 @@ echo "deb https://dl.bintray.com/resin-io/debian stable etcher" | sudo tee /etc/
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 sudo apt-get update
 sudo apt-get install etcher-electron -y
-
-# Install QGroundControl AppImage to Desktop
-cd ~/Desktop
-wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage
-chmod +x ./QGroundControl.AppImage
-sudo usermod -a -G dialout $USER
-sudo apt-get remove modemmanager
-
-
